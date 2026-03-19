@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muslim360 Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for the Muslim360 app." />
+  <style>
+    :root {
+      --bg: #0b1320;
+      --bg-soft: #101b2d;
+      --card: rgba(255,255,255,0.08);
+      --card-solid: #0f1c2f;
+      --text: #f7f3e9;
+      --muted: #d8cdb2;
+      --gold: #d8b56a;
+      --gold-soft: #f0dfb2;
+      --line: rgba(216,181,106,0.22);
+      --emerald: #69b39b;
+      --shadow: 0 18px 60px rgba(0,0,0,0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.72;
+      background:
+        radial-gradient(circle at top left, rgba(216,181,106,0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(105,179,155,0.12), transparent 30%),
+        linear-gradient(180deg, #0a1220 0%, #0d1728 48%, #0b1320 100%);
+      min-height: 100vh;
+    }
+
+    .pattern {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(240,223,178,0.16) 1px, transparent 0);
+      background-size: 24px 24px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.28), rgba(0,0,0,0.02));
+      opacity: 0.35;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 36px 20px 72px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(216,181,106,0.09), rgba(255,255,255,0.03)),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border-radius: 28px;
+      padding: 34px 32px 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border: 1px solid rgba(216,181,106,0.15);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      top: -80px;
+      right: -60px;
+    }
+
+    .hero::after {
+      bottom: -90px;
+      left: -70px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(216,181,106,0.28);
+      background: rgba(255,255,255,0.04);
+      color: var(--gold-soft);
+      font-size: 0.92rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+    }
+
+    .badge .moon {
+      font-size: 1rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 14px 0 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .meta-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(216,181,106,0.16);
+      border-radius: 18px;
+      padding: 14px 16px;
+    }
+
+    .meta-label {
+      display: block;
+      color: var(--gold-soft);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .content {
+      margin-top: 22px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(15,28,47,0.95), rgba(10,19,32,0.97));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .content-inner {
+      padding: 34px 32px 40px;
+    }
+
+    .intro,
+    .section {
+      position: relative;
+    }
+
+    .intro {
+      padding-bottom: 12px;
+    }
+
+    .section {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(216,181,106,0.14);
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 12px;
+      font-size: 1.24rem;
+      color: var(--gold-soft);
+      letter-spacing: -0.01em;
+    }
+
+    .num {
+      width: 32px;
+      height: 32px;
+      flex: 0 0 32px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      background: rgba(216,181,106,0.12);
+      border: 1px solid rgba(216,181,106,0.24);
+      color: var(--gold);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    p, li {
+      font-size: 1rem;
+      color: var(--text);
+      margin: 0;
+    }
+
+    p + p {
+      margin-top: 12px;
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    strong {
+      color: #fffaf0;
+    }
+
+    .highlight {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(105,179,155,0.24);
+      background: rgba(105,179,155,0.08);
+      color: #e7fff7;
+    }
+
+    .contact {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .contact-item {
+      border: 1px solid rgba(216,181,106,0.14);
+      background: rgba(255,255,255,0.03);
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+
+    .contact-label {
+      display: block;
+      color: var(--gold-soft);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    a {
+      color: #f3dfad;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(216,181,106,0.14);
+      color: var(--muted);
+      font-size: 0.94rem;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        padding: 20px 14px 42px;
+      }
+
+      .hero,
+      .content-inner {
+        padding: 24px 20px;
+      }
+
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h2 {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="pattern"></div>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="badge"><span class="moon">☾</span> Muslim360 Official Privacy Policy</div>
+      <h1>Privacy Policy for Muslim360</h1>
+      <p class="subtitle">
+        Your privacy matters to us. This page explains what Muslim360 may access on your device, how that information is used,
+        and the choices you have while using the app on iPhone, iPad, Apple Watch, and other supported Apple devices.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-card">
+          <span class="meta-label">Effective Date</span>
+          <strong>March 18, 2026</strong>
+        </div>
+        <div class="meta-card">
+          <span class="meta-label">Last Updated</span>
+          <strong>March 18, 2026</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="content-inner">
+        <div class="intro">
+          <p>
+            Muslim360 ("we," "our," or "us") respects your privacy. This Privacy Policy explains how the app collects,
+            uses, and protects information when you use Muslim360.
+          </p>
+          <p>
+            By using the app, you agree to the practices described in this Privacy Policy.
+          </p>
+          <div class="highlight">
+            Muslim360 does not include user login, subscriptions, analytics, crash reporting, or server-side storage for user data.
+          </div>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">1</span> Information We Collect</h2>
+          <p>Depending on which features you use, the app may access or process the following information:</p>
+          <ul>
+            <li><strong>Location Information:</strong> If you grant permission, the app may access your device location to calculate prayer times, determine Qibla direction, or show nearby mosques and local Islamic information.</li>
+            <li><strong>Search and User-Entered Information:</strong> If you search for a city, mosque, or location, the app may process the information you type in order to return relevant results.</li>
+            <li><strong>Notification Preferences:</strong> If you enable notifications, the app may store your preferences on your device for Athan alerts, prayer reminders, or similar prayer-related notifications.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">2</span> How We Use Information</h2>
+          <p>We use information only to provide core app functionality, including to:</p>
+          <ul>
+            <li>calculate and display prayer times and related Islamic features,</li>
+            <li>determine Qibla direction,</li>
+            <li>show mosque or location-based results when requested by you,</li>
+            <li>save your app settings and reminder preferences on your device, and</li>
+            <li>maintain app functionality and basic security.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">3</span> Location Data</h2>
+          <p>
+            When permitted by you, location data is used only for app functionality such as determining prayer times,
+            Qibla direction, or local mosque-related results.
+          </p>
+          <p>
+            You can choose not to allow location access and instead manually select a location, where supported.
+          </p>
+          <p>
+            We do not use location data to track you across third-party apps or websites.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">4</span> Data Sharing</h2>
+          <p>We do not sell your personal information.</p>
+          <p>
+            We do not share your personal information with third parties except when necessary to comply with applicable law,
+            enforce legal rights, or protect the safety, security, and integrity of the app and its users.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">5</span> Analytics, Crash Reporting, and Server Storage</h2>
+          <p>
+            Muslim360 does not use third-party analytics, crash reporting, or server-side storage for user data.
+          </p>
+          <p>
+            We do not maintain user accounts, and the app does not include login functionality.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">6</span> Notifications</h2>
+          <p>
+            If you opt in, the app may send local or push notifications for prayer time reminders, Athan alerts,
+            Islamic calendar reminders, or similar app-related notifications.
+          </p>
+          <p>
+            You can disable notifications at any time in your device settings.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">7</span> Data Retention</h2>
+          <p>
+            Most app settings and preferences are stored locally on your device unless a future version of the app introduces
+            optional cloud-based features.
+          </p>
+          <p>
+            Because Muslim360 does not currently use server-side storage for user data, we generally do not retain personal
+            information on our servers.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">8</span> Children's Privacy</h2>
+          <p>
+            Muslim360 is not intended to knowingly collect personal information from children without appropriate consent where
+            required by law. If you believe that information has been provided inappropriately, please contact us so we can review
+            the concern.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">9</span> Your Choices</h2>
+          <p>You can control your information in several ways:</p>
+          <ul>
+            <li>disable location access in your device settings,</li>
+            <li>disable notifications in your device settings, and</li>
+            <li>avoid using optional features that require user-entered location or mosque searches.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">10</span> Security</h2>
+          <p>
+            We use reasonable measures to help protect information processed by the app. However, no method of electronic
+            storage or transmission is completely secure, and we cannot guarantee absolute security.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">11</span> Third-Party Services</h2>
+          <p>
+            The app may rely on platform services or content providers needed to deliver core features such as maps,
+            notifications, or prayer time and mosque-related data. If future versions of the app add third-party SDKs or
+            services that collect data, this Privacy Policy will be updated accordingly.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">12</span> International Users</h2>
+          <p>
+            If you use the app outside the country where it is operated, information processed through the app may be handled
+            in accordance with the laws of other jurisdictions.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">13</span> Changes to This Privacy Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time. If we make material changes, we will update the
+            "Last updated" date on this page.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">14</span> Contact Us</h2>
+          <p>If you have questions about this Privacy Policy, you can contact us at:</p>
+          <div class="contact">
+            <div class="contact-item">
+              <span class="contact-label">Name</span>
+              <strong>Mohammad Mansuri</strong>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Email</span>
+              <a href="mailto:salmanmansuri@live.com">salmanmansuri@live.com</a>
+            </div>
+          </div>
+        </div>
+
+        <footer>
+          © 2026 Muslim360. All rights reserved.
+        </footer>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
