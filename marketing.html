@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muslim360</title>
+  <meta name="description" content="Muslim360 prayer times app for iPhone and Apple Watch." />
+  <style>
+    :root{
+      --bg:#07131f;
+      --bg2:#0b1a29;
+      --card:rgba(255,255,255,0.07);
+      --line:rgba(212, 175, 55, 0.25);
+      --gold:#d4af37;
+      --gold2:#f1d47a;
+      --text:#eef3f8;
+      --muted:#b8c5d3;
+      --accent:#13273d;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(212,175,55,.12), transparent 26%),
+        radial-gradient(circle at 80% 10%, rgba(212,175,55,.08), transparent 20%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height:1.65;
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:24px 20px 70px}
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+      padding:12px 0 22px;
+    }
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--gold2);
+      background:rgba(212,175,55,.08);
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+    .nav a{
+      color:var(--muted);
+      text-decoration:none;
+      margin-left:16px;
+    }
+    .nav a:hover{color:var(--gold2)}
+    .hero{
+      display:grid;
+      grid-template-columns:1.2fr .9fr;
+      gap:26px;
+      align-items:center;
+      padding:34px 0 22px;
+    }
+    .panel{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border-radius:26px;
+      box-shadow:0 12px 40px rgba(0,0,0,.22);
+      padding:34px;
+      backdrop-filter:blur(10px);
+    }
+    h1{
+      margin:0 0 12px;
+      font-size:clamp(2.3rem,5vw,4rem);
+      line-height:1.04;
+    }
+    p.lead{
+      font-size:1.08rem;
+      color:var(--muted);
+      max-width:700px;
+      margin:0;
+    }
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .btn{
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:700;
+      border:1px solid var(--line);
+      color:var(--text);
+      background:rgba(212,175,55,.10);
+    }
+    .btn.secondary{
+      background:rgba(255,255,255,.05);
+    }
+    .mock{
+      min-height:470px;
+      position:relative;
+      overflow:hidden;
+    }
+    .phone{
+      width:230px;
+      height:470px;
+      border-radius:34px;
+      margin:0 auto;
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(circle at top, rgba(212,175,55,.18), transparent 26%),
+        linear-gradient(180deg, #0e2740, #08131f);
+      box-shadow:0 18px 36px rgba(0,0,0,.28);
+      padding:18px;
+      position:relative;
+    }
+    .phone:before{
+      content:"";
+      width:88px;
+      height:6px;
+      border-radius:999px;
+      background:rgba(255,255,255,.18);
+      position:absolute;
+      top:10px;
+      left:50%;
+      transform:translateX(-50%);
+    }
+    .app-card{
+      margin-top:24px;
+      border-radius:24px;
+      padding:18px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(212,175,55,.18);
+    }
+    .time{
+      font-size:2rem;
+      font-weight:800;
+      margin-bottom:2px;
+    }
+    .muted{color:var(--muted)}
+    .pill{
+      display:inline-block;
+      padding:7px 11px;
+      border-radius:999px;
+      background:rgba(212,175,55,.12);
+      border:1px solid rgba(212,175,55,.18);
+      margin:6px 6px 0 0;
+      font-size:.92rem;
+      color:var(--gold2);
+    }
+    .section{margin-top:26px}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:18px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:20px;
+      padding:22px;
+      box-shadow:0 10px 28px rgba(0,0,0,.14);
+    }
+    h2{
+      margin:0 0 8px;
+      font-size:1.45rem;
+      color:var(--gold2);
+    }
+    h3{
+      margin:0 0 8px;
+      font-size:1.08rem;
+      color:var(--gold2);
+    }
+    .screenshot-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+      gap:16px;
+      margin-top:16px;
+    }
+    .shot{
+      aspect-ratio:9/19.5;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, rgba(212,175,55,.14), transparent 22%),
+        linear-gradient(180deg, #0f2740, #09121c);
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      box-shadow:0 8px 24px rgba(0,0,0,.16);
+    }
+    .shot .mini{
+      border-radius:16px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(212,175,55,.14);
+      padding:12px;
+    }
+    .footer{
+      margin-top:34px;
+      text-align:center;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .mock{min-height:auto}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">☪︎ Muslim360</div>
+      <div>
+        <a href="support.html">Support</a>
+        <a href="index.html">Privacy</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="panel">
+        <h1>Prayer times, widgets, and watch features in one clean experience.</h1>
+        <p class="lead">
+          Muslim360 is designed to make daily prayer information simple, elegant, and easy to access across iPhone and Apple Watch.
+        </p>
+        <div class="cta">
+          <a class="btn" href="support.html">Get Support</a>
+          <a class="btn secondary" href="index.html">View Privacy Policy</a>
+        </div>
+        <div style="margin-top:20px">
+          <span class="pill">Prayer Times</span>
+          <span class="pill">Widgets</span>
+          <span class="pill">Apple Watch</span>
+          <span class="pill">Complications</span>
+          <span class="pill">Clean Design</span>
+        </div>
+      </div>
+
+      <div class="panel mock">
+        <div class="phone">
+          <div class="app-card">
+            <div class="muted">Next Prayer</div>
+            <div class="time">Fajr · 5:18 AM</div>
+            <div class="muted">Sunrise · 6:31 AM</div>
+          </div>
+          <div class="app-card">
+            <div class="muted">Today</div>
+            <div style="display:grid;grid-template-columns:1fr auto;gap:8px;font-weight:600">
+              <div>Zuhr</div><div>1:07 PM</div>
+              <div>Asr</div><div>4:39 PM</div>
+              <div>Maghrib</div><div>7:14 PM</div>
+              <div>Isha</div><div>8:29 PM</div>
+            </div>
+          </div>
+          <div class="app-card">
+            <div class="muted">Apple Watch Ready</div>
+            <div style="font-weight:700;margin-top:4px">Quick access from widgets and complications</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section grid">
+      <div class="card">
+        <h3>Fast daily access</h3>
+        <p>See the next prayer and today’s remaining times in a focused layout built for quick checking throughout the day.</p>
+      </div>
+      <div class="card">
+        <h3>Widgets that stay useful</h3>
+        <p>Keep prayer information visible on your Home Screen and Lock Screen with a clean widget-first experience.</p>
+      </div>
+      <div class="card">
+        <h3>Apple Watch support</h3>
+        <p>Designed to extend naturally to Apple Watch for glanceable information, complications, and fast access.</p>
+      </div>
+      <div class="card">
+        <h3>Clean Muslim-focused design</h3>
+        <p>A refined visual style with calm colors, readable layouts, and a premium feel across every screen.</p>
+      </div>
+    </div>
+
+    <div class="section panel">
+      <h2>Preview</h2>
+      <p class="muted">Use this section to show the app visually. You can later replace these placeholders with your real screenshots.</p>
+      <div class="screenshot-grid">
+        <div class="shot">
+          <div class="mini">Prayer overview</div>
+          <div class="mini">Next prayer card</div>
+        </div>
+        <div class="shot">
+          <div class="mini">Daily schedule</div>
+          <div class="mini">Widget-style layout</div>
+        </div>
+        <div class="shot">
+          <div class="mini">Apple Watch screen</div>
+          <div class="mini">Complication support</div>
+        </div>
+        <div class="shot">
+          <div class="mini">Minimal dark theme</div>
+          <div class="mini">Clean typography</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2026 Muslim360 · Created by Mohammad Mansuri
+    </div>
+  </div>
+</body>
+</html>

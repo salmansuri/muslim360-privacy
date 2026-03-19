@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muslim360 Support</title>
+  <meta name="description" content="Support page for Muslim360." />
+  <style>
+    :root{
+      --bg:#07131f;
+      --bg2:#0c1d2d;
+      --card:rgba(255,255,255,0.07);
+      --line:rgba(212, 175, 55, 0.25);
+      --gold:#d4af37;
+      --gold2:#f1d47a;
+      --text:#eef3f8;
+      --muted:#b8c5d3;
+      --accent:#17324d;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(212,175,55,.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(212,175,55,.08), transparent 22%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height:1.65;
+    }
+    .wrap{max-width:980px;margin:0 auto;padding:32px 20px 72px}
+    .hero{
+      padding:38px 28px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border-radius:24px;
+      box-shadow:0 12px 40px rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+    }
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--gold2);
+      background:rgba(212,175,55,.08);
+      font-weight:600;
+      letter-spacing:.02em;
+      font-size:.95rem;
+    }
+    h1{
+      font-size:clamp(2rem,4vw,3.4rem);
+      margin:18px 0 10px;
+      line-height:1.08;
+    }
+    p.lead{
+      color:var(--muted);
+      max-width:720px;
+      font-size:1.05rem;
+      margin:0;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:18px;
+      margin-top:24px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:20px;
+      padding:22px;
+      box-shadow:0 10px 28px rgba(0,0,0,.14);
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:1.2rem;
+      color:var(--gold2);
+    }
+    h3{
+      margin:0 0 8px;
+      font-size:1rem;
+      color:var(--gold2);
+    }
+    .section{margin-top:28px}
+    .faq-item{
+      padding:20px 22px;
+      border-radius:18px;
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      margin-bottom:14px;
+    }
+    a{color:var(--gold2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .button-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .btn{
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(212,175,55,.10);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600;
+    }
+    .footer{
+      margin-top:34px;
+      color:var(--muted);
+      font-size:.95rem;
+      text-align:center;
+    }
+    ul{margin:10px 0 0 18px;padding:0}
+    .small{font-size:.95rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="brand">☪︎ Muslim360 Support</div>
+      <h1>Need help with Muslim360?</h1>
+      <p class="lead">
+        We’re here to help with prayer times, widgets, Apple Watch features, notifications, and general app support.
+      </p>
+      <div class="button-row">
+        <a class="btn" href="mailto:salmanmansuri@live.com">Email Support</a>
+        <a class="btn" href="index.html">Privacy Policy</a>
+        <a class="btn" href="marketing.html">Marketing Page</a>
+      </div>
+    </div>
+
+    <div class="grid section">
+      <div class="card">
+        <h2>Contact</h2>
+        <p><strong>Developer:</strong> Mohammad Mansuri<br>
+        <strong>Email:</strong> <a href="mailto:salmanmansuri@live.com">salmanmansuri@live.com</a></p>
+        <p class="small">Support inquiries are handled by email.</p>
+      </div>
+
+      <div class="card">
+        <h2>What to include</h2>
+        <ul>
+          <li>Your device model</li>
+          <li>iOS or watchOS version</li>
+          <li>What happened</li>
+          <li>Screenshots, if possible</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Common topics</h2>
+        <ul>
+          <li>Prayer times look incorrect</li>
+          <li>Notifications are not firing</li>
+          <li>Widgets are not refreshing</li>
+          <li>Apple Watch sync issues</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="faq-item">
+        <h3>Prayer times look wrong</h3>
+        <p>Check that your location permission is enabled and that your selected city or mosque is correct. If the app offers multiple calculation methods or local mosque-based times, make sure the right source is selected.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Notifications are not working</h3>
+        <p>Open iPhone Settings and confirm notifications are allowed for Muslim360. Also make sure Focus modes, Silent mode, or scheduled summaries are not preventing alerts from appearing.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Widgets are not updating</h3>
+        <p>Try removing the widget and adding it again. Widgets may also refresh based on system timing rather than instantly. Make sure the app has opened recently and location access is still enabled if needed.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Apple Watch app is not syncing</h3>
+        <p>Open the iPhone app and the Watch app once to help sync fresh data. Also confirm Bluetooth is on, the watch is paired correctly, and both devices are using the latest available software.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I report a bug or suggest a feature?</h3>
+        <p>Email <a href="mailto:salmanmansuri@live.com">salmanmansuri@live.com</a> with the issue or suggestion. Clear steps and screenshots help a lot.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2026 Muslim360 · Support by Mohammad Mansuri
+    </div>
+  </div>
+</body>
+</html>
