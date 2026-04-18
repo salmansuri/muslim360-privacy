@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather360 Support</title>
+  <meta name="description" content="Support page for Weather360." />
+  <style>
+    :root{
+      --bg:#071624;
+      --bg2:#0d2436;
+      --card:rgba(255,255,255,0.07);
+      --line:rgba(104, 190, 255, 0.24);
+      --sky:#68beff;
+      --sky-soft:#c1e7ff;
+      --text:#eef8ff;
+      --muted:#bfd3e3;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(104,190,255,.11), transparent 26%),
+        radial-gradient(circle at top right, rgba(255,211,110,.07), transparent 20%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height:1.65;
+    }
+    .wrap{max-width:980px;margin:0 auto;padding:32px 20px 72px}
+    .hero{
+      padding:38px 28px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border-radius:24px;
+      box-shadow:0 12px 40px rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+    }
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--sky-soft);
+      background:rgba(104,190,255,.08);
+      font-weight:600;
+      letter-spacing:.02em;
+      font-size:.95rem;
+    }
+    h1{
+      font-size:clamp(2rem,4vw,3.4rem);
+      margin:18px 0 10px;
+      line-height:1.08;
+    }
+    p.lead{
+      color:var(--muted);
+      max-width:720px;
+      font-size:1.05rem;
+      margin:0;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:18px;
+      margin-top:24px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:20px;
+      padding:22px;
+      box-shadow:0 10px 28px rgba(0,0,0,.14);
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:1.2rem;
+      color:var(--sky-soft);
+    }
+    h3{
+      margin:0 0 8px;
+      font-size:1rem;
+      color:var(--sky-soft);
+    }
+    .section{margin-top:28px}
+    .faq-item{
+      padding:20px 22px;
+      border-radius:18px;
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      margin-bottom:14px;
+    }
+    a{color:var(--sky-soft);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .button-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .btn{
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(104,190,255,.10);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600;
+    }
+    .footer{
+      margin-top:34px;
+      color:var(--muted);
+      font-size:.95rem;
+      text-align:center;
+    }
+    ul{margin:10px 0 0 18px;padding:0}
+    .small{font-size:.95rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="brand">Weather360 Support</div>
+      <h1>Need help with Weather360?</h1>
+      <p class="lead">
+        We can help with forecasts, notifications, minute cast behavior, widgets, Apple Watch sync, Live Activities, and general app support.
+      </p>
+      <div class="button-row">
+        <a class="btn" href="mailto:salmanmansuri@live.com?subject=Weather360%20Support">Email Support</a>
+        <a class="btn" href="weather360-marketing.html">Marketing Page</a>
+        <a class="btn" href="weather360-privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+
+    <div class="grid section">
+      <div class="card">
+        <h2>Contact</h2>
+        <p><strong>Developer:</strong> Mohammad Mansuri<br>
+        <strong>Email:</strong> <a href="mailto:salmanmansuri@live.com?subject=Weather360%20Support">salmanmansuri@live.com</a></p>
+        <p class="small">Email is the best way to reach support for Weather360.</p>
+      </div>
+
+      <div class="card">
+        <h2>Helpful details</h2>
+        <ul>
+          <li>Your device model</li>
+          <li>Your iOS version</li>
+          <li>Your selected location</li>
+          <li>What you expected to happen</li>
+          <li>Screenshots or screen recordings, if possible</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Common topics</h2>
+        <ul>
+          <li>Weather notifications not firing</li>
+          <li>Rain timing looks incorrect</li>
+          <li>Widgets are not updating</li>
+          <li>Live Activity is not refreshing</li>
+          <li>Apple Watch sync issues</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="faq-item">
+        <h3>Notifications are not appearing</h3>
+        <p>Check that notifications are enabled for Weather360 in iPhone Settings. Also review Focus modes, Scheduled Summary, and whether alerts are allowed on the Lock Screen.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Minute cast or rain timing looks off</h3>
+        <p>Weather data can change quickly as forecast models update. Open the app to refresh the latest data and confirm the selected location is correct.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Widgets are stale or not refreshing</h3>
+        <p>Try opening the app once, then remove and re-add the widget if needed. iOS controls widget refresh timing, so updates may not happen instantly in the background.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Live Activity is not updating</h3>
+        <p>Make sure Live Activities are enabled in iPhone Settings for Weather360. If the app has not refreshed recently, reopening it can help re-sync the current weather state.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Apple Watch is not showing the latest weather</h3>
+        <p>Open both the iPhone app and the Watch app once to encourage a fresh sync. Also confirm Bluetooth is on, the watch is paired correctly, and both devices are updated.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I report a bug or request a feature?</h3>
+        <p>Email <a href="mailto:salmanmansuri@live.com?subject=Weather360%20Feedback">salmanmansuri@live.com</a> with clear steps, the affected location, and screenshots if available.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2026 Weather360 · Support by Mohammad Mansuri
+    </div>
+  </div>
+</body>
+</html>

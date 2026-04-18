@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather360</title>
+  <meta name="description" content="Weather360 delivers minute-by-minute rain timing, severe weather alerts, widgets, and Apple Watch support for iPhone." />
+  <style>
+    :root{
+      --bg:#061523;
+      --bg2:#0a2233;
+      --card:rgba(255,255,255,0.07);
+      --line:rgba(104, 190, 255, 0.22);
+      --sky:#68beff;
+      --sky-soft:#b7e2ff;
+      --sun:#ffd36e;
+      --text:#eff8ff;
+      --muted:#bed4e5;
+      --accent:#143249;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(104,190,255,.16), transparent 24%),
+        radial-gradient(circle at 82% 12%, rgba(255,211,110,.10), transparent 18%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height:1.65;
+    }
+    .wrap{max-width:1120px;margin:0 auto;padding:24px 20px 72px}
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+      padding:12px 0 24px;
+    }
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--sky-soft);
+      background:rgba(104,190,255,.08);
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+    .nav a{
+      color:var(--muted);
+      text-decoration:none;
+      margin-left:16px;
+    }
+    .nav a:hover{color:var(--sky-soft)}
+    .hero{
+      display:grid;
+      grid-template-columns:1.15fr .95fr;
+      gap:26px;
+      align-items:center;
+      padding:34px 0 22px;
+    }
+    .panel{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border-radius:28px;
+      box-shadow:0 12px 40px rgba(0,0,0,.22);
+      padding:34px;
+      backdrop-filter:blur(10px);
+    }
+    h1{
+      margin:0 0 12px;
+      font-size:clamp(2.3rem,5vw,4.1rem);
+      line-height:1.03;
+    }
+    p.lead{
+      font-size:1.08rem;
+      color:var(--muted);
+      max-width:720px;
+      margin:0;
+    }
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .btn{
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:700;
+      border:1px solid var(--line);
+      color:var(--text);
+      background:rgba(104,190,255,.11);
+    }
+    .btn.secondary{background:rgba(255,255,255,.05)}
+    .pill{
+      display:inline-block;
+      padding:7px 11px;
+      border-radius:999px;
+      background:rgba(104,190,255,.12);
+      border:1px solid rgba(104,190,255,.18);
+      margin:6px 6px 0 0;
+      font-size:.92rem;
+      color:var(--sky-soft);
+    }
+    .mock{min-height:520px;position:relative;overflow:hidden}
+    .phone{
+      width:248px;
+      height:500px;
+      border-radius:36px;
+      margin:0 auto;
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(circle at top, rgba(255,211,110,.18), transparent 20%),
+        linear-gradient(180deg, #1b5f97, #0b1b2a 58%, #07101a);
+      box-shadow:0 18px 36px rgba(0,0,0,.28);
+      padding:18px;
+      position:relative;
+    }
+    .phone:before{
+      content:"";
+      width:92px;
+      height:6px;
+      border-radius:999px;
+      background:rgba(255,255,255,.18);
+      position:absolute;
+      top:10px;
+      left:50%;
+      transform:translateX(-50%);
+    }
+    .sun{
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      background:radial-gradient(circle at 35% 35%, #fff2be, var(--sun));
+      box-shadow:0 0 30px rgba(255,211,110,.55);
+      margin-left:auto;
+      margin-top:26px;
+    }
+    .cloud{
+      width:130px;
+      height:44px;
+      border-radius:999px;
+      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(223,238,255,.88));
+      position:relative;
+      margin:10px auto 0;
+      box-shadow:0 10px 25px rgba(0,0,0,.12);
+    }
+    .cloud:before,.cloud:after{
+      content:"";
+      position:absolute;
+      border-radius:50%;
+      background:inherit;
+    }
+    .cloud:before{width:48px;height:48px;left:14px;top:-18px}
+    .cloud:after{width:64px;height:64px;right:18px;top:-26px}
+    .rain{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      margin-top:16px;
+    }
+    .drop{
+      width:8px;
+      height:28px;
+      border-radius:999px;
+      background:linear-gradient(180deg, #8fe7ff, #2f8df4);
+      opacity:.9;
+    }
+    .app-card{
+      margin-top:18px;
+      border-radius:24px;
+      padding:18px;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(104,190,255,.18);
+    }
+    .time{font-size:2rem;font-weight:800;margin-bottom:2px}
+    .muted{color:var(--muted)}
+    .section{margin-top:28px}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:18px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:20px;
+      padding:22px;
+      box-shadow:0 10px 28px rgba(0,0,0,.14);
+    }
+    h2{
+      margin:0 0 8px;
+      font-size:1.45rem;
+      color:var(--sky-soft);
+    }
+    h3{
+      margin:0 0 8px;
+      font-size:1.08rem;
+      color:var(--sky-soft);
+    }
+    .screenshot-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+      gap:16px;
+      margin-top:16px;
+    }
+    .shot{
+      aspect-ratio:9/19.5;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, rgba(104,190,255,.16), transparent 24%),
+        linear-gradient(180deg, #1e6092, #0a1a27 62%, #07111a);
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      box-shadow:0 8px 24px rgba(0,0,0,.16);
+    }
+    .shot .mini{
+      border-radius:16px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(104,190,255,.16);
+      padding:12px;
+    }
+    .footer{
+      margin-top:34px;
+      text-align:center;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .mock{min-height:auto}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">Weather360</div>
+      <div>
+        <a href="weather360-support.html">Support</a>
+        <a href="weather360-privacy.html">Privacy</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="panel">
+        <h1>Minute-by-minute weather, built to feel immediate.</h1>
+        <p class="lead">
+          Weather360 brings live minute cast, severe weather alerts, rich widgets, and Apple Watch support into one focused weather experience for iPhone.
+        </p>
+        <div class="cta">
+          <a class="btn" href="weather360-support.html">Get Support</a>
+          <a class="btn secondary" href="weather360-privacy.html">View Privacy Policy</a>
+        </div>
+        <div style="margin-top:20px">
+          <span class="pill">Minute Cast</span>
+          <span class="pill">Rain Alerts</span>
+          <span class="pill">Severe Weather</span>
+          <span class="pill">Live Activities</span>
+          <span class="pill">Widgets</span>
+          <span class="pill">Apple Watch</span>
+        </div>
+      </div>
+
+      <div class="panel mock">
+        <div class="phone">
+          <div class="sun"></div>
+          <div class="cloud"></div>
+          <div class="rain">
+            <div class="drop"></div>
+            <div class="drop" style="height:34px"></div>
+            <div class="drop" style="height:24px"></div>
+            <div class="drop" style="height:30px"></div>
+          </div>
+          <div class="app-card">
+            <div class="muted">Edison, NJ</div>
+            <div class="time">61°</div>
+            <div class="muted">Rain easing in 28 min</div>
+          </div>
+          <div class="app-card">
+            <div class="muted">Minute Cast</div>
+            <div style="display:grid;grid-template-columns:repeat(8,1fr);gap:5px;align-items:end;height:72px;margin-top:10px">
+              <div style="height:62px;background:#7dd6ff;border-radius:999px"></div>
+              <div style="height:58px;background:#7dd6ff;border-radius:999px"></div>
+              <div style="height:52px;background:#6dc8ff;border-radius:999px"></div>
+              <div style="height:43px;background:#66bcff;border-radius:999px"></div>
+              <div style="height:30px;background:#59adff;border-radius:999px"></div>
+              <div style="height:18px;background:#489ef6;border-radius:999px"></div>
+              <div style="height:10px;background:#3e90eb;border-radius:999px"></div>
+              <div style="height:5px;background:#337fd6;border-radius:999px"></div>
+            </div>
+          </div>
+          <div class="app-card">
+            <div class="muted">Alerting</div>
+            <div style="font-weight:700;margin-top:4px">Rain start, rain stop, and severe weather support</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Why Weather360</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Minute-level timing</h3>
+          <p>See when precipitation is about to start, intensify, taper off, or end instead of relying only on broad hourly summaries.</p>
+        </div>
+        <div class="card">
+          <h3>Helpful alerts</h3>
+          <p>Get notified for rain, snow, severe weather, and daily forecast reports designed around the location you actually care about.</p>
+        </div>
+        <div class="card">
+          <h3>Lock screen presence</h3>
+          <p>Live Activities and widgets keep weather changes visible without forcing you to fully open the app every time conditions shift.</p>
+        </div>
+        <div class="card">
+          <h3>Designed for Apple devices</h3>
+          <p>Weather360 is built for iPhone, widgets, Dynamic Island, and Apple Watch so the same forecast follows you everywhere.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Highlights</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Current conditions</h3>
+          <p>Track temperature, feels-like, wind, UV, pressure, visibility, humidity, moon phase, and air quality in a focused layout.</p>
+        </div>
+        <div class="card">
+          <h3>Detailed forecast views</h3>
+          <p>Explore the day ahead with hourly trends, next-hour precipitation, and deeper weather detail screens when you want more context.</p>
+        </div>
+        <div class="card">
+          <h3>Multiple locations</h3>
+          <p>Use your current location or keep an eye on saved places so you can watch weather where you live, commute, or travel.</p>
+        </div>
+        <div class="card">
+          <h3>Weather alerts that stay useful</h3>
+          <p>Severe weather messaging and precipitation notifications are tuned to be timely and informative instead of noisy.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>What the app feels like</h2>
+      <div class="screenshot-grid">
+        <div class="shot">
+          <div class="mini">
+            <strong>Home</strong><br>
+            Current temp, hero animation, and glanceable forecast.
+          </div>
+          <div class="mini">Minute cast and location-aware detail front and center.</div>
+        </div>
+        <div class="shot">
+          <div class="mini">
+            <strong>Alerts</strong><br>
+            Rain start, rain ending, and severe weather support.
+          </div>
+          <div class="mini">Built to make timing easier to understand quickly.</div>
+        </div>
+        <div class="shot">
+          <div class="mini">
+            <strong>Widgets</strong><br>
+            Forecast details from the Home Screen and Lock Screen.
+          </div>
+          <div class="mini">Fast access without reopening the app.</div>
+        </div>
+        <div class="shot">
+          <div class="mini">
+            <strong>Watch</strong><br>
+            Key weather info ready on Apple Watch.
+          </div>
+          <div class="mini">Weather that stays with you throughout the day.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2026 Weather360 · Built by Mohammad Mansuri
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather360 Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for the Weather360 app." />
+  <style>
+    :root {
+      --bg: #0a1623;
+      --bg-soft: #102132;
+      --card: rgba(255,255,255,0.08);
+      --card-solid: #0e1d2d;
+      --text: #f2f8fd;
+      --muted: #c7d8e6;
+      --sky: #72c6ff;
+      --sky-soft: #d3efff;
+      --line: rgba(114,198,255,0.24);
+      --mint: #7ed8c1;
+      --shadow: 0 18px 60px rgba(0,0,0,0.35);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.72;
+      background:
+        radial-gradient(circle at top left, rgba(114,198,255,0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(126,216,193,0.10), transparent 30%),
+        linear-gradient(180deg, #08131f 0%, #0d1927 48%, #0a1623 100%);
+      min-height: 100vh;
+    }
+    .pattern {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(circle at 1px 1px, rgba(211,239,255,0.14) 1px, transparent 0);
+      background-size: 24px 24px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.24), rgba(0,0,0,0.03));
+      opacity: 0.35;
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 36px 20px 72px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(114,198,255,0.08), rgba(255,255,255,0.03)),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border-radius: 28px;
+      padding: 34px 32px 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border: 1px solid rgba(114,198,255,0.14);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::before { top: -80px; right: -60px; }
+    .hero::after { bottom: -90px; left: -70px; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(114,198,255,0.28);
+      background: rgba(255,255,255,0.04);
+      color: var(--sky-soft);
+      font-size: 0.92rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+    .subtitle {
+      margin: 14px 0 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .meta-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(114,198,255,0.16);
+      border-radius: 18px;
+      padding: 14px 16px;
+    }
+    .meta-label {
+      display: block;
+      color: var(--sky-soft);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .content {
+      margin-top: 22px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(14,29,45,0.95), rgba(10,22,35,0.97));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .content-inner { padding: 34px 32px 40px; }
+    .intro, .section { position: relative; }
+    .intro { padding-bottom: 12px; }
+    .section {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(114,198,255,0.14);
+    }
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 12px;
+      font-size: 1.24rem;
+      color: var(--sky-soft);
+      letter-spacing: -0.01em;
+    }
+    .num {
+      width: 32px;
+      height: 32px;
+      flex: 0 0 32px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      background: rgba(114,198,255,0.12);
+      border: 1px solid rgba(114,198,255,0.24);
+      color: var(--sky);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+    p, li { font-size: 1rem; color: var(--text); margin: 0; }
+    p + p { margin-top: 12px; }
+    ul { margin: 12px 0 0; padding-left: 22px; }
+    li + li { margin-top: 8px; }
+    strong { color: #ffffff; }
+    .highlight {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(126,216,193,0.24);
+      background: rgba(126,216,193,0.08);
+      color: #eafff9;
+    }
+    .contact {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .contact-item {
+      border: 1px solid rgba(114,198,255,0.14);
+      background: rgba(255,255,255,0.03);
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+    .contact-label {
+      display: block;
+      color: var(--sky-soft);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    a { color: #d9f2ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(114,198,255,0.14);
+      color: var(--muted);
+      font-size: 0.94rem;
+      text-align: center;
+    }
+    @media (max-width: 720px) {
+      .wrap { padding: 20px 14px 42px; }
+      .hero, .content-inner { padding: 24px 20px; }
+      .meta-grid { grid-template-columns: 1fr; }
+      h2 { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="pattern"></div>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="badge">Weather360 Official Privacy Policy</div>
+      <h1>Privacy Policy for Weather360</h1>
+      <p class="subtitle">
+        This page explains what Weather360 may access on your device, how information is used to provide weather features,
+        and what choices you have while using the app on iPhone, widgets, Live Activities, and Apple Watch.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-card">
+          <span class="meta-label">Effective Date</span>
+          <strong>April 18, 2026</strong>
+        </div>
+        <div class="meta-card">
+          <span class="meta-label">Last Updated</span>
+          <strong>April 18, 2026</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="content-inner">
+        <div class="intro">
+          <p>
+            Weather360 ("we," "our," or "us") respects your privacy. This Privacy Policy explains how the app collects,
+            uses, and protects information when you use Weather360.
+          </p>
+          <p>
+            By using the app, you agree to the practices described in this Privacy Policy.
+          </p>
+          <div class="highlight">
+            Weather360 does not require a user account. Most app preferences are stored on your device, and weather-related
+            notification registrations are limited to what is needed to send the alerts you enable.
+          </div>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">1</span> Information We May Collect or Process</h2>
+          <p>Depending on the features you use, Weather360 may access or process the following:</p>
+          <ul>
+            <li><strong>Location Information:</strong> If you grant permission, the app may use your current location to show local weather, minute-by-minute precipitation, widgets, and weather alerts.</li>
+            <li><strong>Saved or Selected Locations:</strong> If you manually choose locations, the app stores those selections locally so it can display weather for those places.</li>
+            <li><strong>Notification Preferences:</strong> If you enable notifications, the app stores your settings locally and may register limited alert subscription data with our backend so enabled weather alerts can be delivered.</li>
+            <li><strong>Push Notification Token:</strong> If push notifications are enabled, Apple may assign a device token that is used only to deliver notifications you opted into.</li>
+            <li><strong>Advertising Data:</strong> If ads are shown, ad requests may be handled through advertising partners such as Google AdMob, which may process data as described in their own policies.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">2</span> How Information Is Used</h2>
+          <p>We use information only to provide core app functionality, including to:</p>
+          <ul>
+            <li>display local weather conditions and forecasts,</li>
+            <li>support minute-by-minute precipitation timing, widgets, and Live Activities,</li>
+            <li>send weather notifications you choose to enable,</li>
+            <li>save your location and app preferences on your device, and</li>
+            <li>maintain app functionality, security, and reliability.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">3</span> Location Data</h2>
+          <p>
+            When permitted by you, location data is used to provide weather forecasts and alerting for your current location.
+          </p>
+          <p>
+            You can choose not to allow location access and instead manually select a location where supported.
+          </p>
+          <p>
+            We do not use location data to track you across third-party apps or websites.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">4</span> Weather Notifications</h2>
+          <p>
+            If you enable severe weather or precipitation push notifications, the app may send limited registration data to our backend,
+            such as location name, coordinates, notification settings, time zone, environment, and your Apple push token.
+          </p>
+          <p>
+            This information is used only to send the weather alerts you enabled. You can disable notifications at any time in your device settings or within the app where available.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">5</span> Data Sharing</h2>
+          <p>We do not sell your personal information.</p>
+          <p>
+            We do not share personal information with third parties except when necessary to provide app functionality,
+            comply with applicable law, or protect the safety, security, and integrity of the app and its users.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">6</span> Third-Party Services</h2>
+          <p>Weather360 may rely on third-party services to deliver core features, including:</p>
+          <ul>
+            <li><strong>Apple WeatherKit</strong> for weather data,</li>
+            <li><strong>Apple Push Notification service (APNs)</strong> for push delivery, and</li>
+            <li><strong>Google AdMob</strong> or related ad services if advertising is shown in the app.</li>
+          </ul>
+          <p>
+            These third parties may process data under their own terms and privacy policies.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">7</span> Advertising</h2>
+          <p>
+            Weather360 may display ads. If so, advertising providers may collect or process information such as device identifiers,
+            approximate location, ad interactions, or diagnostics as allowed by applicable law and their own policies.
+          </p>
+          <p>
+            If consent is required in your region, consent choices may be presented within the app.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">8</span> Data Retention</h2>
+          <p>
+            Most app settings and preferences are stored locally on your device.
+          </p>
+          <p>
+            Notification subscription data that is needed to send enabled weather alerts may be stored on our backend for as long as necessary to support those alerts, unless removed or replaced by updated app registration data.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">9</span> Your Choices</h2>
+          <p>You can control your information in several ways:</p>
+          <ul>
+            <li>disable location access in your device settings,</li>
+            <li>disable notifications in your device settings,</li>
+            <li>remove saved locations from the app, and</li>
+            <li>adjust advertising or consent settings where available.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">10</span> Security</h2>
+          <p>
+            We use reasonable measures to help protect information processed by the app and related backend services.
+            However, no method of electronic storage or transmission is completely secure, and we cannot guarantee absolute security.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">11</span> Children's Privacy</h2>
+          <p>
+            Weather360 is not intended to knowingly collect personal information from children without appropriate consent where required by law.
+            If you believe information has been provided inappropriately, please contact us so we can review the concern.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">12</span> Changes to This Privacy Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time. If we make material changes, we will update the
+            "Last Updated" date on this page.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><span class="num">13</span> Contact Us</h2>
+          <p>If you have questions about this Privacy Policy, you can contact us at:</p>
+          <div class="contact">
+            <div class="contact-item">
+              <span class="contact-label">Name</span>
+              <strong>Mohammad Mansuri</strong>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Email</span>
+              <a href="mailto:salmanmansuri@live.com?subject=Weather360%20Privacy">salmanmansuri@live.com</a>
+            </div>
+          </div>
+        </div>
+
+        <footer>
+          © 2026 Weather360. All rights reserved.
+        </footer>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
