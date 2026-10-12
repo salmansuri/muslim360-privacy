@@ -346,7 +346,7 @@
           <h2><span class="num">2</span> Information Sent to Our Servers</h2>
           <p>Some features need a server to work. When you use them, the app sends the following:</p>
           <ul>
-            <li><strong>Mosque favourites and mosque notifications:</strong> a random identifier the app creates for your installation, your device's push notification token, the mosques you favourite, and your notification choices for them. We use these to send you that mosque's announcements and event reminders.</li>
+            <li><strong>Push notification registration:</strong> a random identifier the app creates for your installation, your device's push notification token, and whether notifications are turned on. We use these only to deliver notifications from the app.</li>
             <li><strong>Live Activity prayer countdowns:</strong> if you turn on Live Activities, the app sends the same installation identifier, a Live Activity push token, your city name, your location coordinates, your time zone, your calculation settings and the upcoming prayer and iqamah times, so our server can start and update the countdown on your Lock Screen at the right moments.</li>
             <li><strong>Iqamah times:</strong> when the app requests a mosque's iqamah times, it sends the mosque's identifier and an Apple App Attest token that proves the request comes from a genuine copy of the app. This does not identify you.</li>
             <li><strong>Mosque search:</strong> the text you type and, for nearby results, your approximate location are used to find mosques. They may be sent to Apple Maps and to public web search services to locate a mosque's public details.</li>
@@ -404,7 +404,7 @@
           <p>We rely on the following providers to run the features described above. They process information on our behalf or as part of delivering their own service:</p>
           <ul>
             <li><strong>Apple:</strong> push notifications, Live Activities, iCloud, Maps, App Attest and subscription purchases.</li>
-            <li><strong>Supabase:</strong> the database and sign-in service for mosque pages, favourites, notifications and Live Activity scheduling.</li>
+            <li><strong>Supabase:</strong> the database and sign-in service for mosque pages, notification registration and Live Activity scheduling.</li>
             <li><strong>Cloudflare:</strong> the service that delivers iqamah times and sends push notifications.</li>
             <li><strong>Google Firebase:</strong> storage of mosque information and announcements.</li>
             <li><strong>Cloudinary:</strong> hosting for images that mosque administrators upload.</li>
@@ -422,8 +422,8 @@
           <h2><span class="num">8</span> Data Retention and Deletion</h2>
           <p>
             Information on your device stays there until you delete it or remove the app. Records on our servers that are
-            tied to your installation identifier are kept while you use the related feature. Turning off mosque notifications
-            or Live Activities, or removing a favourite, tells our server to stop using the corresponding record.
+            tied to your installation identifier are kept while you use the related feature. Turning off notifications or
+            Live Activities tells our server to stop using the corresponding record.
           </p>
           <p>
             Mosque page claims are kept while the claim is under review and for as long as the page remains claimed.
@@ -440,8 +440,7 @@
           <ul>
             <li>turn off location access in your device settings and choose a location manually instead,</li>
             <li>turn off notifications in your device settings, or individual alerts in the app,</li>
-            <li>turn off Live Activities in the app, which stops your location being sent for them,</li>
-            <li>remove a mosque from your favourites, and</li>
+            <li>turn off Live Activities in the app, which stops your location being sent for them, and</li>
             <li>manage or cancel a subscription in your Apple Account settings.</li>
           </ul>
         </div>
